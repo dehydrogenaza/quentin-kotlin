@@ -6,6 +6,12 @@ import java.time.LocalDateTime
 import java.time.Year
 
 @Entity
+@NamedEntityGraph(
+    name = "contest_edition_graph", attributeNodes = [
+        NamedAttributeNode("submissions"),
+        NamedAttributeNode("jury"),
+    ]
+)
 class ContestEdition(
     var editionYear: Year,
     var submissionDeadline: LocalDateTime,
@@ -20,8 +26,8 @@ class ContestEdition(
     @ManyToMany
     @JoinTable(
         name = "Contest_Jury",
-        joinColumns = [ JoinColumn(name = "contest_id") ],
-        inverseJoinColumns = [ JoinColumn(name = "juror_id") ]
+        joinColumns = [JoinColumn(name = "contest_id")],
+        inverseJoinColumns = [JoinColumn(name = "juror_id")]
     )
     var jury: MutableSet<Juror>,
 ) : BaseEntity()
