@@ -1,0 +1,15 @@
+### POST add contest submission
+POST http://localhost:8080/api/submissions
+Content-Type: application/json
+
+{
+  "title": "New Submission",
+  "author": "New Author",
+  "year": 2024
+}
+
+### GET new edition
+GET http://localhost:8080/api/editions/2024
+
+### GET old edition
+GET http://localhost:8080/api/editions/1824

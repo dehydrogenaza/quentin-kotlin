@@ -8,4 +8,6 @@ class QuentinApplication
 
 fun main(args: Array<String>) {
     runApplication<QuentinApplication>(*args)
+
+    println("Hello Guilds!")
 }
